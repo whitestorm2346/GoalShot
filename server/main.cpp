@@ -78,6 +78,19 @@ int main(){
         std::cout<< "Accepted the connection.\n\n";
     }
 
+    // chat to the client
+
+    char buffer[200];
+
+    int byteCount = recv(acceptSocket, buffer, 200, 0);
+
+    if(byteCount > 0) {
+        std::cout<< "Message receive: " << buffer << "\n\n";
+    }
+    else {
+        WSACleanup();
+    }
+
     system("pause");
     WSACleanup();
 
